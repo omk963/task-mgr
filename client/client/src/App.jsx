@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import TasksPage from './pages/TasksPage';
-import TodoContainer from './components/TodoContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'

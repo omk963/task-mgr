@@ -1,0 +1,28 @@
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    padding-left: 0.5em;
+    justify-content: space-between;
+    width: 3em;
+}
+
+.deleteBtn,
+.editBtn {
+    margin: 0;
+    padding: 0.5em 0;
+    font-weight: 900;
+    background-color: transparent;
+    border: none;
+    transition: transform .2s;
+}
+
+.deleteBtn:hover,
+.editBtn:hover {
+    border: none;
+    transform: scale(1.2);
+}

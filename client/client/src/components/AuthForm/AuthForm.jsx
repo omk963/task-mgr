@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import api from "../utils/api";
+import style from "./AuthForm.module.css";
+import api from "../../utils/api";
 
 const AuthForm = ({ isLogin }) => {
     const navigate = useNavigate();
@@ -37,8 +38,8 @@ const AuthForm = ({ isLogin }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <h1>{isLogin ? "Login" : "Register"}</h1>
+        <form onSubmit={onSubmit} className={style.form}>
+            <h1 className={style.header}>{isLogin ? "Login" : "Register"}</h1>
             {
                 !isLogin && (
                     <input
@@ -48,6 +49,7 @@ const AuthForm = ({ isLogin }) => {
                         onChange={onChange}
                         placeholder="Name"
                         required={!isLogin}
+                        className={style.input}
                     />
                 )
             }
@@ -58,6 +60,7 @@ const AuthForm = ({ isLogin }) => {
                 onChange={onChange}
                 placeholder="Email"
                 required
+                className={style.input}
             />
             <input
                 type="password"
@@ -66,8 +69,9 @@ const AuthForm = ({ isLogin }) => {
                 onChange={onChange}
                 placeholder="Password"
                 required
+                className={style.input}
             />
-            <button type="submit">{isLogin ? "Login" : "Register"}</button>
+            <button type="submit" className={style.button}>{isLogin ? "Login" : "Register"}</button>
         </form>
     );
 };

@@ -5,7 +5,13 @@ const TodoList = ({ todoList, onEditTodo, onRemoveTodo }) => {
     return (
         <ul className={style.list}>
             {todoList.map((todo) => (
-                <TodoListItem key={todo._id} todo={todo} onEditTodo={onEditTodo} onRemoveTodo={onRemoveTodo} />
+                <TodoListItem
+                    key={todo._id}
+                    todo={todo}
+                    onEditTodo={onEditTodo}
+                    onRemoveTodo={onRemoveTodo}
+                    commentList={todo.comments}
+                />
             ))}
         </ul>
     );

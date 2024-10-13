@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import TasksPage from './pages/TasksPage';
-import TodoContainer from './components/TodoContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'
@@ -11,7 +10,6 @@ import './App.css'
 function App() {
   return (
     <>
-      <h1>Task Manager</h1>
       <Router>
         <Routes>
           <Route path='/' element={<HomePage />} />

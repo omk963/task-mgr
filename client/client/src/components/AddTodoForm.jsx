@@ -13,7 +13,7 @@ const AddTodoForm = ({ onAddTodo }) => {
 
     const handleAddTodo = (e) => {
         e.preventDefault();
-        if (todoTitle === '') {
+        if (todoTitle.trim() === '') {
             alert("Please enter a valid to-do item");
             return;
         }
@@ -30,7 +30,12 @@ const AddTodoForm = ({ onAddTodo }) => {
 
     return (
         <form onSubmit={handleAddTodo} className={style.titleForm} >
-            <InputWithLabel id='todoTitle' value={todoTitle} onInputChange={handleTitleChange}>
+            <InputWithLabel
+                id='todoTitle'
+                value={todoTitle}
+                onInputChange={handleTitleChange}
+                placeholder='Enter Task Here'
+            >
                 Title:
             </InputWithLabel>
             <button type="submit" className={style.addBtn}>Add</button>

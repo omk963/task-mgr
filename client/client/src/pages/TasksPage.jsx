@@ -2,7 +2,10 @@ import TodoContainer from "../components/TodoContainer";
 
 const TasksPage = () => {
     return (
-        <TodoContainer />
+        <>
+            <h1>Tasks</h1>
+            <TodoContainer />
+        </>
     );
 };
 

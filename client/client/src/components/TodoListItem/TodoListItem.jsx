@@ -17,7 +17,10 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
 
     const commentsCount = comments.length || 0;
 
+    // useState for Checkbox
+    const [completed, setCompleted] = useState(false);
 
+    // functions for Tasks
     const startEdit = () => {
         setIsEditing(true);
     };
@@ -32,7 +35,7 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
         setNewTask(editedText);
     };
 
-
+    // functions for Comments
     const toggleCommentInput = () => {
         setShowComments((toggle) => !toggle);
     };
@@ -101,36 +104,52 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
         }
     };
 
+    // functions for Checkbox
+    const handleCheckboxClick = async () => {
+        setCompleted(true);
+        await onRemoveTodo(todo._id)
+    };
+
     return (
         <div>
             <div className={style.list}>
-                <input type="checkbox" id="todo" name="todo" />
-                <li>
-                    {isEditing ? (
+                {!completed && (
+                    <>
                         <input
-                            type='text'
-                            value={newTask}
-                            onChange={handleTextChange}
+                            type="checkbox"
+                            id="todo"
+                            name="todo"
+                            onChange={handleCheckboxClick}
                         />
-                    ) : (todo.title)}
-                </li>
-                <span className={style.buttons}>
-                    <button onClick={toggleCommentInput} className={style.commentToggleBtn}>
-                        <FontAwesomeIcon icon={commentsCount > 0 ? faCommentDots : faComment} />
-                    </button>
-                    {isEditing ? (
-                        <button className={style.editBtn} onClick={saveEdit} >
-                            <FontAwesomeIcon icon={faFloppyDisk} />
-                        </button>
-                    ) : (
-                        <button className={style.editBtn} onClick={startEdit}>
-                            <FontAwesomeIcon icon={faPencil} />
-                        </button>
-                    )}
-                    <button className={style.deleteBtn} onClick={() => onRemoveTodo(todo._id)}>
-                        <FontAwesomeIcon icon={faTrashCan} />
-                    </button>
-                </span>
+
+                        <li>
+                            {isEditing ? (
+                                <input
+                                    type='text'
+                                    value={newTask}
+                                    onChange={handleTextChange}
+                                />
+                            ) : (todo.title)}
+                        </li>
+                        <span className={style.buttons}>
+                            <button onClick={toggleCommentInput} className={style.commentToggleBtn}>
+                                <FontAwesomeIcon icon={commentsCount > 0 ? faCommentDots : faComment} />
+                            </button>
+                            {isEditing ? (
+                                <button className={style.editBtn} onClick={saveEdit} >
+                                    <FontAwesomeIcon icon={faFloppyDisk} />
+                                </button>
+                            ) : (
+                                <button className={style.editBtn} onClick={startEdit}>
+                                    <FontAwesomeIcon icon={faPencil} />
+                                </button>
+                            )}
+                            <button className={style.deleteBtn} onClick={() => onRemoveTodo(todo._id)}>
+                                <FontAwesomeIcon icon={faTrashCan} />
+                            </button>
+                        </span>
+                    </>
+                )}
             </div>
 
             {showComments && comments && commentsCount > 0 && (

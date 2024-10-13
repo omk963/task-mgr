@@ -1,0 +1,21 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+    height: 30rem;
+}
+
+.header {
+    margin-bottom: 5rem;
+}
+
+.input {
+    margin-top: 1rem;
+    border-radius: 0.3em;
+    border: 0.01em solid gray;
+}
+
+.button {
+    margin-top: 3rem;
+    background-color: pink;
+}

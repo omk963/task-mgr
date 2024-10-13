@@ -1,12 +1,11 @@
 import api from "../utils/api";
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import TodoList from "./TodoList/TodoList";
 import AddTodoForm from "./AddTodoForm";
 
 const TodoContainer = () => {
-    const navigate = useNavigate();
     const [todoList, setTodoList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetchData();
@@ -16,6 +15,7 @@ const TodoContainer = () => {
         try {
             const res = await api.get('/tasks');
             setTodoList(res.data.tasks);
+            setIsLoading(false);
             console.log("fetch completed: ", res.data.tasks);
         } catch (error) {
             console.error('Failed to fetch tasks', error);
@@ -70,7 +70,11 @@ const TodoContainer = () => {
     return (
         <div>
             <AddTodoForm onAddTodo={addTodo} />
-            <TodoList todoList={todoList} onEditTodo={editTodo} onRemoveTodo={removeTodo} />
+            {todoList.length > 0 && (
+                isLoading
+                    ? <p>Loading...</p>
+                    : <TodoList todoList={todoList} onEditTodo={editTodo} onRemoveTodo={removeTodo} />
+            )}
         </div>
     );
 };

@@ -14,7 +14,7 @@ const InputWithLabel = ({ id, children, value, onInputChange, placeholder }) => 
         <React.Fragment>
             <label className={style.title}>{children}</label>
             <input
-                className={style.todo}
+                className={style.input}
 
                 id={id} type='text'
                 name={children}
@@ -22,15 +22,6 @@ const InputWithLabel = ({ id, children, value, onInputChange, placeholder }) => 
                 placeholder={placeholder}
                 onChange={onInputChange}
                 ref={inputRef}
-
-                style={{
-                    borderRadius: "0.65em",
-                    borderWidth: "1px",
-                    textAlign: "center",
-                    marginRight: "0.5em",
-                    marginLeft: "0.5em",
-                    width: "16.5em"
-                }}
             />
             <label htmlFor={id}></label>
         </React.Fragment>

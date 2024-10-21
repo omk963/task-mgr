@@ -5,10 +5,20 @@
     font-weight: 600;
 }
 
+.dispPriority {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.hidePriority {
+    visibility: hidden;
+}
+
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 4em;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    width: 10em;
 }
 
 .deleteBtn,
@@ -44,6 +54,37 @@
     justify-content: center;
     width: 100%;
     padding-left: 4em;
+}
+
+.input {
+    border-radius: 0.65em;
+    border-width: 1px;
+    text-align: center;
+    margin-right: 0.5em;
+    margin-Left: 0.5em;
+    width: 16.5em;
+}
+
+.priority {
+    width: 8em;
+    font-weight: 400;
+}
+
+.low {
+    background: rgb(159, 255, 159);
+}
+
+.medium {
+    background: rgb(255, 220, 156);
+}
+
+.high {
+    background: rgb(255, 171, 171);
+}
+
+.dispPriority {
+    border-radius: 80%;
+    margin-right: 0.5em;
 }
 
 .addBtn {

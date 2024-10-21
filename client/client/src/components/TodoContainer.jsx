@@ -28,7 +28,7 @@ const TodoContainer = () => {
             const res = await api.post('/tasks', {
                 title: task.title,
                 priority: task.priority,
-                _id: task._id
+                _id: task._id,
             });
             setTodoList((prevList) => {
                 const newList = [...prevList, res.data];
@@ -41,10 +41,11 @@ const TodoContainer = () => {
         }
     };
 
-    const editTodo = async (newTask, id) => {
+    const editTodo = async (newTask, newPriority, id) => {
         try {
             await api.patch(`/tasks/${id}`, {
-                title: newTask
+                title: newTask,
+                priority: newPriority
             });
             setTodoList((prev) => {
                 return prev.map((task) =>

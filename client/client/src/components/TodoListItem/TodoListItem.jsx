@@ -10,6 +10,7 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
     // useState for Tasks
     const [isEditing, setIsEditing] = useState(false);
     const [newTask, setNewTask] = useState(todo.title);
+    const [newPriority, setNewPriority] = useState(todo.priority);
 
     // useState for Comments
     const [showComments, setShowComments] = useState(false);
@@ -26,13 +27,18 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
     };
 
     const saveEdit = () => {
-        onEditTodo(newTask, todo._id);
+        onEditTodo(newTask, newPriority, todo._id);
         setIsEditing(false);
     };
 
     const handleTextChange = (e) => {
         const editedText = e.target.value;
         setNewTask(editedText);
+    };
+
+    const handlePriorityChange = (e) => {
+        const editedPriority = e.target.value;
+        setNewPriority(editedPriority);
     };
 
     // functions for Comments
@@ -124,14 +130,40 @@ const TodoListItem = ({ todo, onEditTodo, onRemoveTodo, commentList }) => {
 
                         <li>
                             {isEditing ? (
-                                <input
-                                    type='text'
-                                    value={newTask}
-                                    onChange={handleTextChange}
-                                />
-                            ) : (todo.title)}
+                                <>
+                                    <input
+                                        type='text'
+                                        value={newTask}
+                                        onChange={handleTextChange}
+                                    />
+                                    <select
+                                        type='text'
+                                        value={newPriority}
+                                        onChange={handlePriorityChange}
+                                        className={`
+                                            ${style.input} 
+                                            ${style.priority}
+                                            ${newPriority === "Low" ? style.low : newPriority === "Medium" ? style.medium : style.high}
+                                        `}
+                                    >
+                                        <option value="Low" className={style.low}>Low</option>
+                                        <option value="Medium" className={style.medium}>Medium</option>
+                                        <option value="High" className={style.high}>High</option>
+                                    </select>
+                                </>
+                            ) : (
+                                todo.title
+                            )}
                         </li>
                         <span className={style.buttons}>
+                            <p
+                                className={`
+                                            ${newPriority === "Low" ? style.low : newPriority === "Medium" ? style.medium : style.high}
+                                            ${isEditing ? style.hidePriority : style.dispPriority}
+                                            `}
+                            >
+                                {todo.priority}
+                            </p>
                             <button onClick={toggleCommentInput} className={style.commentToggleBtn}>
                                 <FontAwesomeIcon icon={commentsCount > 0 ? faCommentDots : faComment} />
                             </button>

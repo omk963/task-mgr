@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000', // Connect with backend server
+      '/api': 'https://task-mgr-ozo2.onrender.com', // Connect with backend server
     },
   },
 });

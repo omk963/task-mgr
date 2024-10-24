@@ -27,10 +27,11 @@ const HomePage = () => {
                                     <strong>Features:</strong>
                                     <br />
                                     <ul style={{ textAlign: "left" }}>
-                                        <li>Add & Organize Tasks: Create tasks with priorities, deadlines, and categories.</li>
-                                        <li>Track Your Progress: Stay on top of your to-do list with easy tracking and visual progress updates.</li>
-                                        <li>Collaborate & Comment: Add comments and collaborate with others on tasks.</li>
-                                        <li>Edit & Manage: Edit tasks easily, mark them as completed, and delete them when done.</li>
+                                        <li><strong>Add & Organize Tasks:</strong> Create tasks with priorities and deadlines.</li>
+                                        <li><strong>Track Your Progress:</strong> Stay on top of your to-do list with easy tracking and visual progress updates.</li>
+                                        <li><strong>Sort:</strong> Sort tasks by priority, creation date, or name to quickly find what you need.</li>
+                                        <li><strong>Comments:</strong> Add comments or notes to tasks for additional context or reminders.</li>
+                                        <li><strong>Edit & Manage:</strong> Edit tasks easily, mark them as completed, and delete them when done.</li>
                                     </ul>
 
                                     Stay productive, stay on task with TaskMaster.

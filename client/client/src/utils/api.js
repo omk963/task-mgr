@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api/v1', // Backend API URL
+    baseURL: 'https://task-mgr-ozo2.onrender.com/api/v1', // Backend API URL
     timeout: 10000, // Timeout after 10 seconds
     headers: {
         'Content-Type': 'application/json',

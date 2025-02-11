@@ -1,8 +1,8 @@
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/AuthForm/AuthForm";
 
 const LoginPage = () => {
     return (
-        <AuthForm isLogin={true} />
+        <AuthForm login={true} />
     );
 };
 

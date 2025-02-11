@@ -1,8 +1,11 @@
-import TodoContainer from "../components/TodoContainer";
+import TodoContainer from "../components/TodoContainer/TodoContainer";
 
 const TasksPage = () => {
     return (
-        <TodoContainer />
+        <>
+            <h1>Tasks</h1>
+            <TodoContainer />
+        </>
     );
 };
 

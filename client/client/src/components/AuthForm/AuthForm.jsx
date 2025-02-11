@@ -20,8 +20,6 @@ const AuthForm = ({ login }) => {
 
     const handleRegister = async (userInfo) => {
         try {
-            console.log(userInfo)
-
             const res = await api.post('/auth/register', {
                 ...userInfo
             })

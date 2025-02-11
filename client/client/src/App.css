@@ -10,3 +10,19 @@
     width: 100%;
   }
 }
+
+.react-toggle.react-toggle--checked .react-toggle-track {
+  background-color: rgb(60, 255, 0) !important;
+}
+
+.react-toggle.react-toggle--unchecked .react-toggle-track .react-toggle--unchecked {
+  background-color: rgb(14, 235, 255) !important;
+}
+
+.react-toggle.react-toggle--unchecked:hover .react-toggle-track:hover {
+  background-color: rgb(14, 235, 255) !important;
+}
+
+.react-toggle-thumb:hover {
+  border: 0.1px;
+}

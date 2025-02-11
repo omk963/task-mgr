@@ -1,21 +1,37 @@
 .form {
     display: flex;
     flex-direction: column;
-    border: black 1px solid;
     height: 30rem;
 }
 
 .header {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
-.input {
+label {
+    text-align: start;
+    margin-top: 1em;
+    font-size: medium;
+}
+
+input {
     margin-top: 1rem;
     border-radius: 0.3em;
     border: 0.01em solid gray;
 }
 
+.error {
+    color: red;
+    margin: 0;
+    font-weight: 400;
+}
+
 .button {
-    margin-top: 3rem;
+    margin-top: 2rem;
     background-color: pink;
+}
+
+.switch {
+    width: min-content;
+    height: min-content;
 }
